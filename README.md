@@ -1,2 +1,2 @@
-# arschlecken
-Simple SPA to grab the viewers attention and get them hyped for Hütte.
+# Arschlecken
+Simple SPA (single page application) to grab the viewers attention and get them hyped for Hütte.
