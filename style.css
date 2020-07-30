@@ -1,5 +1,6 @@
 * {
     cursor: url('img/tongue.png'), auto;
+    font-family: "Lucida Console", Courier, monospace;
 }
 
 .imgbox {
@@ -11,4 +12,14 @@
     max-width: 100%;
     max-height: 80vh;
     margin: auto;
+}
+
+#points {
+    z-index: 9000 !important;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 300%;
+    color: darkorange;
+    -webkit-text-stroke: 1px orangered;
 }
