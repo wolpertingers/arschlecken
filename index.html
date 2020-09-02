@@ -8,15 +8,13 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.1.0/fabric.min.js"></script>
 <script type="text/javascript" src="code.js"></script>
 </head>
 
-<body>
-	<div id="points">+100</div>
-	<div class="imgbox">
-		<img class="centerfit" src="img/von-hinten.png"
-			alt="nothing to see here" />
-	</div>
+<body onload="init();">
+	<canvas id="canvas"></canvas>
 </body>
 
 </html>
