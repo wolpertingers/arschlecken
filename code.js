@@ -2,7 +2,7 @@ var canvas, scoreText;
 var score = 0;
 
 function init() {
-	canvas = new fabric.Canvas('canvas', { selection: false });
+	canvas = new fabric.Canvas('canvas', { selection: false, defaultCursor: new Image('img/tongue.png') });
 	scoreText = new fabric.Text('Punkte: 0', {
 		fontFamily: 'Helvetica, Arial, sans-serif',
 		fontSize: 50,
