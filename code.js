@@ -39,13 +39,13 @@ function init() {
 	}
 
 	// setting arsch position
-	arsch_x = (canvas.width / 2) + scale * arsch_offset_x;	
-	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;	
+	arsch_x = (canvas.width / 2) + scale * arsch_offset_x;
+	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;
 
 	// on click event
 	canvas.on('mouse:down', function(options) {
 		let x = options.pointer.x;
-		let y = options.pointer.y;	
+		let y = options.pointer.y;
 		let squared_dist_x = Math.pow(arsch_x - x, 2);
 		let squared_dist_y = Math.pow(arsch_y - y, 2);
 		let dist = Math.sqrt(squared_dist_x + squared_dist_y);
@@ -74,7 +74,7 @@ function init() {
 			score += points;
 			scoreText.text = `Punkte: ${score}`;
 			Cookies.set('score', score);
-			createjs.Sound.play(mlemID);
+			createjs.Sound.play(mlemID, { volume: tp });
 		}
 	});
 }
