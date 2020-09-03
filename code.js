@@ -6,7 +6,7 @@ const arsch_offset_y = 763;
 const wolpi_size_x = 2148;
 const wolpi_size_y = 2847;
 const cutoff_radius = 200;
-const falloff = 0.01;   // indicates how quickly points go down with increased distance
+const falloff = 0.01; // indicates how quickly points go down with increased distance
 
 
 function init() {
@@ -28,15 +28,6 @@ function init() {
 	// resize canvas to window size
 	window.addEventListener('resize', resizeCanvas, false);
 	resizeCanvas();
-
-	// this hopefully gives me the right scaling of the image
-	let diff_x = wolpi_size_x - canvas.width;
-	let diff_y = wolpi_size_y - canvas.height;
-	if (diff_x >= diff_y) {
-		scale = canvas.width / wolpi_size_x
-	} else {
-		scale = canvas.height / wolpi_size_y
-	}
 
 	// setting arsch position
 	arsch_x = (canvas.width / 2) + scale * arsch_offset_x;
@@ -88,4 +79,13 @@ function resizeCanvas() {
 	canvas.setHeight(window.innerHeight * 0.9);
 	canvas.setWidth(window.innerWidth);
 	canvas.renderAll();
+
+	// get scaling of the image
+	let diff_x = wolpi_size_x - canvas.width;
+	let diff_y = wolpi_size_y - canvas.height;
+	if (diff_x >= diff_y) {
+		scale = canvas.width / wolpi_size_x
+	} else {
+		scale = canvas.height / wolpi_size_y
+	}
 }
