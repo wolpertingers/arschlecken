@@ -1,4 +1,5 @@
 var canvas, score, scoreText;
+var mlemID = 'mlem';
 var scale, arsch_x, arsch_y;
 const arsch_offset_x = - 174;
 const arsch_offset_y = 763;
@@ -7,7 +8,10 @@ const wolpi_size_y = 2847;
 const cutoff_radius = 200;
 const falloff = 0.01;   // indicates how quickly points go down with increased distance
 
+
 function init() {
+	createjs.Sound.registerSound("sound/mlem.mp3", mlemID);
+
 	score = loadScore();
 
 	canvas = new fabric.Canvas('canvas', { selection: false, defaultCursor: new Image('img/tongue.png') });
@@ -50,7 +54,7 @@ function init() {
 			let points = Math.ceil(tp * 100);
 			let text = new fabric.Text(`+${points}`, {
 				fontFamily: 'Helvetica, Arial, sans-serif',
-				fontSize: 100,
+				fontSize: points * 2,
 				fill: 'darkorange',
 				strokeWidth: 3,
 				stroke: 'orangered',
@@ -70,6 +74,7 @@ function init() {
 			score += points;
 			scoreText.text = `Punkte: ${score}`;
 			Cookies.set('score', score);
+			createjs.Sound.play(mlemID);
 		}
 	});
 }
