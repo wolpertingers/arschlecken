@@ -1,0 +1,9 @@
+version: '3.5'
+services:
+  server:
+    container_name: arschlecken
+    build:
+      context: .
+      dockerfile: docker/server
+    ports:
+    - 80:80
