@@ -1,8 +1,8 @@
 var canvas, score, scoreText;
-const abs_arsch_X = (1.0 / 2.14) * canvas.width;  // this is now absolute
-const abs_arsch_Y = (1.0 / 1.3) * canvas.height;  // this is now absolute
-const falloff = 7.5;   // indicates how quickly points go down with increased distance
-const cutoff = 0.05;   // indicates at what value to cut off giving out points
+const rel_arsch_X = (1.0 / 2.14)
+const rel_arsch_Y = (1.0 / 1.3)
+const falloff = 0.01;   // indicates how quickly points go down with increased distance
+const cutoff = 0.1;   // indicates at what value to cut off giving out points
 
 function init() {
 	score = loadScore();
@@ -26,8 +26,10 @@ function init() {
 	canvas.on('mouse:down', function(options) {
 		let x = options.pointer.x;
 		let y = options.pointer.y;
-		let squared_dist_X = Math.pow(rel_arsch_X - x, 2);
-		let squared_dist_Y = Math.pow(rel_arsch_Y - y, 2);
+		let abs_arsch_X = rel_arsch_X * canvas.width;	
+		let abs_arsch_Y = rel_arsch_Y * canvas.height;		
+		let squared_dist_X = Math.pow(abs_arsch_X - x, 2);
+		let squared_dist_Y = Math.pow(abs_arsch_Y - y, 2);
 		let dist = Math.sqrt(squared_dist_X + squared_dist_Y);
 		let tp = Math.exp(- falloff * dist);
 		if (tp > cutoff) {
