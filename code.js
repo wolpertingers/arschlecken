@@ -42,7 +42,7 @@ function init() {
 			let text = new fabric.Text(`+${points}`, {
 				fontFamily: 'Helvetica, Arial, sans-serif',
 				fontSize: points * 2,
-				fill: 'darkorange',
+				fill: points === 100 ? 'red' : 'darkorange',
 				strokeWidth: 3,
 				stroke: 'orangered',
 				selectable: false,
