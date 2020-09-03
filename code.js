@@ -29,10 +29,6 @@ function init() {
 	window.addEventListener('resize', resizeCanvas, false);
 	resizeCanvas();
 
-	// setting arsch position
-	arsch_x = (canvas.width / 2) + scale * arsch_offset_x;
-	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;
-
 	// on click event
 	canvas.on('mouse:down', function(options) {
 		let x = options.pointer.x;
@@ -88,4 +84,8 @@ function resizeCanvas() {
 	} else {
 		scale = canvas.height / wolpi_size_y
 	}
+
+	// setting arsch position
+	arsch_x = (canvas.width / 2) + scale * arsch_offset_x;
+	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;
 }
