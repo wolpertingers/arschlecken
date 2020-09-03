@@ -1,4 +1,8 @@
 var canvas, score, scoreText;
+const rel_arsch_X = 1.0 / 2.14;
+const rel_arsch_Y = 1.0 / 1.3;
+const falloff = 10.0  // indicates how quickly points go down with increased distance
+const cutoff = 0.5    // at what value do you want to cut off giving out points?
 
 function init() {
 	score = loadScore();
@@ -20,14 +24,13 @@ function init() {
 
 	// on click event
 	canvas.on('mouse:down', function(options) {
-		let x = canvas.width / options.pointer.x;
-		let y = canvas.height / options.pointer.y;
-		let distX = Math.pow(2.14 - x, 2);
-		let distY = Math.pow(1.3 - y, 2);
-		let dist = distX + distY;
-		let c = Math.sqrt(dist);
-		let tp = 1 - c;
-		if (tp > 0) {
+		let x = options.pointer.x / canvas.width;   // now they're always < 1
+		let y = options.pointer.y / canvas.height;  // now they're always < 1
+		let squared_dist_X = Math.pow(rel_arsch_X - x, 2);
+		let squared_dist_Y = Math.pow(rel_arsch_Y - y, 2);
+		let dist = Math.sqrt(squared_dist_X + squared_dist_Y);        // consequentyl, this too is < 1
+		let tp = Math.exp( - falloff * dist)
+		if (tp > cutoff) {
 			let points = Math.ceil(tp * 100);
 			let text = new fabric.Text(`+${points}`, {
 				fontFamily: 'Helvetica, Arial, sans-serif',
