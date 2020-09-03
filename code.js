@@ -34,7 +34,7 @@ function init() {
 			let points = Math.ceil(tp * 100);
 			let text = new fabric.Text(`+${points}`, {
 				fontFamily: 'Helvetica, Arial, sans-serif',
-				fontSize: 100,
+				fontSize: points * 2,
 				fill: 'darkorange',
 				strokeWidth: 3,
 				stroke: 'orangered',
