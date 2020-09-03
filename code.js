@@ -1,9 +1,9 @@
 var canvas, scoreText;
-var score = 0;
+var score = Cookies.get('score') ? parseInt(Cookies.get('score')) : 0;
 
 function init() {
 	canvas = new fabric.Canvas('canvas', { selection: false, defaultCursor: new Image('img/tongue.png') });
-	scoreText = new fabric.Text('Punkte: 0', {
+	scoreText = new fabric.Text(`Punkte: ${score}`, {
 		fontFamily: 'Helvetica, Arial, sans-serif',
 		fontSize: 50,
 		selectable: false,
@@ -49,6 +49,7 @@ function init() {
 			canvas.add(text);
 			score += points;
 			scoreText.text = `Punkte: ${score}`;
+			Cookies.set('score', score)
 		}
 	});
 }
