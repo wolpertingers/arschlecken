@@ -1,10 +1,13 @@
 var canvas, score, scoreText;
+var mlemID = 'mlem';
 const rel_arsch_X = 1.0 / 2.14;
 const rel_arsch_Y = 1.0 / 1.3;
 const falloff = 7.5; // indicates how quickly points go down with increased distance
 const cutoff = 0.05; // indicates at what value to cut off giving out points
 
 function init() {
+	createjs.Sound.registerSound("sound/mlem.mp3", mlemID);
+
 	score = loadScore();
 
 	canvas = new fabric.Canvas('canvas', { selection: false, defaultCursor: new Image('img/tongue.png') });
@@ -54,6 +57,7 @@ function init() {
 			score += points;
 			scoreText.text = `Punkte: ${score}`;
 			Cookies.set('score', score);
+			createjs.Sound.play(mlemID);
 		}
 	});
 }
