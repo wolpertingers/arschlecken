@@ -1,7 +1,8 @@
-var canvas, scoreText;
-var score = Cookies.get('score') ? parseInt(Cookies.get('score')) : 0;
+var canvas, score, scoreText;
 
 function init() {
+	score = loadScore();
+
 	canvas = new fabric.Canvas('canvas', { selection: false, defaultCursor: new Image('img/tongue.png') });
 	scoreText = new fabric.Text(`Punkte: ${score}`, {
 		fontFamily: 'Helvetica, Arial, sans-serif',
@@ -49,9 +50,14 @@ function init() {
 			canvas.add(text);
 			score += points;
 			scoreText.text = `Punkte: ${score}`;
-			Cookies.set('score', score)
+			Cookies.set('score', score);
 		}
 	});
+}
+
+function loadScore() {
+	let cookieScore = Cookies.get('score');
+	return isNaN(cookieScore) ? 0 : parseInt(cookieScore);
 }
 
 function resizeCanvas() {
