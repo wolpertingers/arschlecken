@@ -6,7 +6,6 @@ const arsch_offset_x = - 174;
 const arsch_offset_y = 763;
 const wolpi_size_x = 2148;
 const wolpi_size_y = 2847;
-const const_cutoff_radius = 400;
 const falloff = 0.01; // indicates how quickly points go down with increased distance
 
 
@@ -90,7 +89,7 @@ function resizeCanvas() {
 	arsch_x = (canvas.width / 2) + scale * arsch_offset_x;
 	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;
 
-	cutoff_radius = const_cutoff_radius * scale
+	cutoff_radius = 400 * scale
 
 	scoreText.fontSize = 150 * scale;
 	scoreText.text = `Punkte: ${score}`;
