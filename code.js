@@ -41,7 +41,7 @@ function init() {
 			let points = Math.ceil(tp * 100);
 			let text = new fabric.Text(`+${points}`, {
 				fontFamily: 'Helvetica, Arial, sans-serif',
-				fontSize: points * 2,
+				fontSize: scale * points * 2,
 				fill: points === 100 ? 'red' : 'darkorange',
 				strokeWidth: 3,
 				stroke: 'orangered',
@@ -88,4 +88,6 @@ function resizeCanvas() {
 	// setting arsch position
 	arsch_x = (canvas.width / 2) + scale * arsch_offset_x;
 	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;
+
+	scoreText.fontSize = 50 * scale;
 }
