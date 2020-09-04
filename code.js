@@ -1,11 +1,12 @@
 var canvas, score, scoreText;
 var mlemID = 'mlem';
 var scale, arsch_x, arsch_y;
+var cutoff_radius;
 const arsch_offset_x = - 174;
 const arsch_offset_y = 763;
 const wolpi_size_x = 2148;
 const wolpi_size_y = 2847;
-const cutoff_radius = 200;
+const const_cutoff_radius = 400;
 const falloff = 0.01; // indicates how quickly points go down with increased distance
 
 
@@ -17,7 +18,7 @@ function init() {
 	canvas = new fabric.Canvas('canvas', { selection: false, defaultCursor: new Image('img/tongue.png') });
 	scoreText = new fabric.Text(`Punkte: ${score}`, {
 		fontFamily: 'Helvetica, Arial, sans-serif',
-		fontSize: 50,
+		fontSize: 100,
 		selectable: false,
 		evented: false,
 		left: 10,
@@ -41,9 +42,9 @@ function init() {
 			let points = Math.ceil(tp * 100);
 			let text = new fabric.Text(`+${points}`, {
 				fontFamily: 'Helvetica, Arial, sans-serif',
-				fontSize: scale * points * 2,
+				fontSize: scale * points * 5,
 				fill: points === 100 ? 'red' : 'darkorange',
-				strokeWidth: 3,
+				strokeWidth: scale * 5,
 				stroke: 'orangered',
 				selectable: false,
 				evented: false,
@@ -89,6 +90,8 @@ function resizeCanvas() {
 	arsch_x = (canvas.width / 2) + scale * arsch_offset_x;
 	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;
 
-	scoreText.fontSize = 50 * scale;
+	cutoff_radius = const_cutoff_radius * scale
+
+	scoreText.fontSize = 150 * scale;
 	scoreText.text = `Punkte: ${score}`;
 }
