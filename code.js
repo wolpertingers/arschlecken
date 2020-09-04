@@ -90,4 +90,5 @@ function resizeCanvas() {
 	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;
 
 	scoreText.fontSize = 50 * scale;
+	scoreText.text = `Punkte: ${score}`;
 }
