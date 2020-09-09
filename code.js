@@ -14,8 +14,8 @@ function init() {
 	createjs.Sound.registerSound("sound/mlem.mp3", mlemID);
 
 	score = loadScore();
-	scoreText = document.getElementById('scoreText');
-	scoreText.innerHTML = `Punkte: ${score}`;
+	scoreText = $('#scoreText');
+	scoreText.html(`Punkte: ${score}`);
 
 	canvas = new fabric.Canvas('canvas', { selection: false, defaultCursor: new Image('img/tongue.png') });
 
@@ -53,7 +53,7 @@ function init() {
 			});
 			canvas.add(text);
 			score += points;
-			scoreText.innerHTML = `Punkte: ${score}`;
+			scoreText.html(`Punkte: ${score}`);
 			Cookies.set('score', score);
 			createjs.Sound.play(mlemID, { volume: tp });
 		}
