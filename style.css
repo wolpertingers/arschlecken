@@ -1,5 +1,6 @@
 * {
 	cursor: url('img/tongue.png'), auto;
+	font-family: "Lucida Console", Courier, monospace;
 }
 
 #canvas {
@@ -7,30 +8,4 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-}
-
-#info {
-	color: #fff !important;
-	text-transform: uppercase;
-	background: #729fcf;
-	border-radius: 50%;
-	border: none;
-	transition: all 0.4s ease 0s;
-	height: 50px;
-	width: 50px;
-	font-size: 200%;
-	display: block;
-	margin-left: auto !important;
-	margin: 10px;
-}
-
-#info:hover {
-	color: #404040 !important;
-	font-weight: 700 !important;
-	letter-spacing: 3px;
-	background: none;
-	box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-	-webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-	-moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-	transition: all 0.3s ease 0s;
 }
