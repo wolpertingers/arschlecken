@@ -16,7 +16,7 @@
 }
 
 #scoreText {
-	font-size: 7.5vh;
+	font-size: 5vh;
 }
 
 #info {
@@ -26,9 +26,9 @@
 	border-radius: 50%;
 	border: none;
 	transition: all 0.4s ease 0s;
-	height: 10vh;
-	width: 10vh;
-	font-size: 7.5vh;
+	height: 7.5vh;
+	width: 7.5vh;
+	font-size: 5vh;
 	position: absolute;
 	display: block;
 	top: 2.5%;
