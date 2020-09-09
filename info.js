@@ -1,0 +1,1 @@
+const infoText = '<h1>Spielanleitung</h1><hr><p>Willkommen zu <b>Wolpertingerarsch lecken</b>!<br/>Ziel dieses Spiel ist es, möglichst viele Punkte zu sammeln. Um dies zu tun, muss der Arsch des Wolpertingers möglichst genau mit der Zunge getroffen werden. Klicke auf das Arschloch um zu beginnen.</p>';

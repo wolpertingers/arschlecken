@@ -16,5 +16,46 @@
 }
 
 #scoreText {
-	font-size: 7.5vh;
+	font-size: 5vh;
+}
+
+#info {
+	color: #fff !important;
+	text-transform: uppercase;
+	background: #729fcf;
+	border-radius: 50%;
+	border: none;
+	transition: all 0.4s ease 0s;
+	height: 7.5vh;
+	width: 7.5vh;
+	font-size: 5vh;
+	position: absolute;
+	display: block;
+	top: 2.5%;
+	right: 2.5%;
+	line-height: 0px;
+}
+
+#info:hover {
+	color: #404040 !important;
+	font-weight: 700 !important;
+	letter-spacing: 3px;
+	background: none;
+	box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+	transition: all 0.3s ease 0s;
+}
+
+.modal-content {
+	margin-top: calc(50vh/2) !important;
+	font-size: 2em !important;
+}
+
+.bootbox-close-button {
+	font-size: 1.5em !important;
+}
+
+.btn-info {
+	font-size: 1em !important;
 }

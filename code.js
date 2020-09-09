@@ -9,11 +9,13 @@ const wolpi_size_y = 2847;
 const falloff = 0.01; // indicates how quickly points go down with increased distance
 
 function init() {
+	tippy('#info', { content: 'Spielanleitung' });
+
 	createjs.Sound.registerSound("sound/mlem.mp3", mlemID);
 
 	score = loadScore();
-	scoreText = document.getElementById('scoreText');
-	scoreText.innerHTML = `Punkte: ${score}`;
+	scoreText = $('#scoreText');
+	scoreText.html(`Punkte: ${score}`);
 
 	canvas = new fabric.Canvas('canvas', { selection: false, defaultCursor: new Image('img/tongue.png') });
 
@@ -51,7 +53,7 @@ function init() {
 			});
 			canvas.add(text);
 			score += points;
-			scoreText.innerHTML = `Punkte: ${score}`;
+			scoreText.html(`Punkte: ${score}`);
 			Cookies.set('score', score);
 			createjs.Sound.play(mlemID, { volume: tp });
 		}
@@ -72,14 +74,27 @@ function resizeCanvas() {
 	let diff_x = wolpi_size_x - canvas.width;
 	let diff_y = wolpi_size_y - canvas.height;
 	if (diff_x >= diff_y) {
-		scale = canvas.width / wolpi_size_x
+		scale = canvas.width / wolpi_size_x;
 	} else {
-		scale = canvas.height / wolpi_size_y
+		scale = canvas.height / wolpi_size_y;
 	}
 
 	// setting arsch position
 	arsch_x = (canvas.width / 2) + scale * arsch_offset_x;
 	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;
 
-	cutoff_radius = 400 * scale
+	cutoff_radius = 400 * scale;
+}
+
+function showInfo() {
+	bootbox.alert({
+		message: infoText, // infoText from info.js
+		size: 'large',
+		buttons: {
+			ok: {
+				label: "Einverstanden!",
+				className: 'btn-info'
+			}
+		}
+	});
 }
