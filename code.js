@@ -8,22 +8,14 @@ const wolpi_size_x = 2148;
 const wolpi_size_y = 2847;
 const falloff = 0.01; // indicates how quickly points go down with increased distance
 
-
 function init() {
 	createjs.Sound.registerSound("sound/mlem.mp3", mlemID);
 
 	score = loadScore();
+	scoreText = document.getElementById('scoreText');
+	scoreText.innerHTML = `Punkte: ${score}`;
 
 	canvas = new fabric.Canvas('canvas', { selection: false, defaultCursor: new Image('img/tongue.png') });
-	scoreText = new fabric.Text(`Punkte: ${score}`, {
-		fontFamily: 'Helvetica, Arial, sans-serif',
-		fontSize: 100,
-		selectable: false,
-		evented: false,
-		left: 10,
-		top: 10
-	});
-	canvas.add(scoreText);
 
 	// resize canvas to window size
 	window.addEventListener('resize', resizeCanvas, false);
@@ -59,7 +51,7 @@ function init() {
 			});
 			canvas.add(text);
 			score += points;
-			scoreText.text = `Punkte: ${score}`;
+			scoreText.innerHTML = `Punkte: ${score}`;
 			Cookies.set('score', score);
 			createjs.Sound.play(mlemID, { volume: tp });
 		}
@@ -90,7 +82,4 @@ function resizeCanvas() {
 	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;
 
 	cutoff_radius = 400 * scale
-
-	scoreText.fontSize = 150 * scale;
-	scoreText.text = `Punkte: ${score}`;
 }
