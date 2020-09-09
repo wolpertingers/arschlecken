@@ -8,9 +8,8 @@ const wolpi_size_x = 2148;
 const wolpi_size_y = 2847;
 const falloff = 0.01; // indicates how quickly points go down with increased distance
 
-function init() {
-	tippy('#info', { content: 'Spielanleitung' });
 
+function init() {
 	createjs.Sound.registerSound("sound/mlem.mp3", mlemID);
 
 	score = loadScore();
@@ -81,32 +80,17 @@ function resizeCanvas() {
 	let diff_x = wolpi_size_x - canvas.width;
 	let diff_y = wolpi_size_y - canvas.height;
 	if (diff_x >= diff_y) {
-		scale = canvas.width / wolpi_size_x;
+		scale = canvas.width / wolpi_size_x
 	} else {
-		scale = canvas.height / wolpi_size_y;
+		scale = canvas.height / wolpi_size_y
 	}
 
 	// setting arsch position
 	arsch_x = (canvas.width / 2) + scale * arsch_offset_x;
 	arsch_y = (canvas.height / 2) + scale * arsch_offset_y;
 
-	cutoff_radius = 400 * scale;
+	cutoff_radius = 400 * scale
 
 	scoreText.fontSize = 150 * scale;
 	scoreText.text = `Punkte: ${score}`;
-}
-
-function showInfo() {
-	bootbox.alert({
-		message: infoText, // infoText from info.js
-		size: 'large',
-		buttons: {
-			ok: {
-				label: "Einverstanden!",
-				className: 'btn-info'
-			}
-		}
-	}).find('.modal-content').css({
-		'margin-top': '50%'
-	});
 }
